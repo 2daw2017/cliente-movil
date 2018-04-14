@@ -1,3 +1,13 @@
 components-mensaje {
-
+    .derecha{
+        background-color: #e0fec7;
+        position: relative;
+        left: 0px;
+    }
+    .izquierda{
+    }
 }
+$grid-max-widths:(
+    sm: 100px,
+    md: 100px
+)

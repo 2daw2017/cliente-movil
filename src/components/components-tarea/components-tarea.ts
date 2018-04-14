@@ -11,12 +11,10 @@ export class ComponentsTareaComponent implements OnInit{
   }
   ngOnInit(){
     this.color=this.asignarColor();
-    console.log(this.color);
   }
   private asignarColor() {
     let color;
     let num = Math.floor(Math.random() * (3));
-    console.log(num);
     switch (num) {
       case 0:
         color = 'primary';

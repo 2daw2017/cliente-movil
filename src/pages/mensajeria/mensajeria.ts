@@ -14,7 +14,7 @@ export class MensajeriaPage {
     this.mensajes.push(new Mensaje('Jane','1','Holaaa'));
     this.mensajes.push(new Mensaje('Julian','2','que tal?'));
     this.mensajes.push(new Mensaje('Jane','3','Bien, y tu?'));
-    this.mensajes.push(new Mensaje('Julian','4','Bien'));
+    this.mensajes.push(new Mensaje('Julian','4','Bihkljjjjjjjjjjjjjjjjjjjjjjdjkfgadlskfgdsflksdagfasldfgvdslfgdbflkdsgvfldasfcvdwelñicvadsljglkiuulkiluien'));
   }
 
   ionViewDidLoad() {

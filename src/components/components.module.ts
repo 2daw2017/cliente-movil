@@ -3,9 +3,11 @@ import { ComponentsMensajeComponent } from './components-mensaje/components-mens
 import { ComponentsTareaComponent } from './components-tarea/components-tarea';
 @NgModule({
 	declarations: [ComponentsMensajeComponent,
-    ComponentsTareaComponent],
+    ComponentsTareaComponent,
+    ],
 	imports: [],
 	exports: [ComponentsMensajeComponent,
-    ComponentsTareaComponent]
+    ComponentsTareaComponent,
+    ]
 })
 export class ComponentsModule {}

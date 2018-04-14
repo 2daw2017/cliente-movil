@@ -10,7 +10,7 @@ export class ComponentsMensajeComponent implements OnInit {
   text: string;
   date: string;
   autor: string;
-  color: string;
+  derecha: boolean;
   constructor() {
 
   }
@@ -19,12 +19,11 @@ export class ComponentsMensajeComponent implements OnInit {
     this.text = this.mensaje.texto;
     this.autor = this.mensaje.autor;
     this.date = this.mensaje.fecha;
-    this.color = this.asignarColor();
-    console.log(this.color);
+    this.derecha = this.asginarPosicionTxt();
   }
-  asignarColor() {
-    let color = (this.autor != this.user) ? 'mensaje' : 'blanco';
-    console.log(color);
-    return (color);
+
+  asginarPosicionTxt() {
+    let pos = (this.autor != this.user) ? true : false;
+    return (pos);
   }
 }

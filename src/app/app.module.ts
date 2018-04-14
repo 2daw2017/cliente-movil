@@ -12,10 +12,13 @@ import { SignupPage, MainPage, QrscanPage, MensajeriaPage, TareasPage } from '..
 
 //Plugins
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { LaunchNavigator} from '@ionic-native/launch-navigator';
 
+// Mapas
+import { AgmCoreModule } from '@agm/core';
 // Modulos
 import { ComponentsMensajeComponent } from '../components/components-mensaje/components-mensaje';
-import { ComponentsTareaComponent } from '../components/components-tarea/components-tarea'
+import { ComponentsTareaComponent } from '../components/components-tarea/components-tarea';
 @NgModule({
   declarations: [
     MyApp,
@@ -29,7 +32,11 @@ import { ComponentsTareaComponent } from '../components/components-tarea/compone
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDxLW7O0ZfmNFbuHl9EwOvcglcjWPUZL28'
+    })
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,7 +51,8 @@ import { ComponentsTareaComponent } from '../components/components-tarea/compone
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    BarcodeScanner
+    BarcodeScanner,
+    LaunchNavigator
   ]
 })
 export class AppModule { }
