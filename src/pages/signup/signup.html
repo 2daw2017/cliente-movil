@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar >
+    <ion-title>Configuración inicial</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <br><br>
+  <h3>Código de empresa</h3>
+  <p>Introduce el código de tu empresa</p>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Código: xx-xxxx-xx</ion-label>
+      <ion-input type="text" value=""></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button color="secondary" block round (click)="showAlert()">Próximo paso</button>
+  <button ion-button color="primary" block round>Escanear codigo QR</button>
+</ion-content>
