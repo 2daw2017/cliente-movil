@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
-import { MainPage } from '../main/main';
+import { MainPage, QrscanPage } from '../export';
 
 @Component({
   selector: 'page-signup',
@@ -35,5 +35,8 @@ export class SignupPage {
       ]
     });
     confirm.present();
+  }
+  goQrScan(){
+    this.navCtrl.push(QrscanPage);
   }
 }

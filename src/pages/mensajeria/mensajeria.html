@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>mensajeria</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="fondo">
+  <div *ngFor="let msj of mensajes">
+    <components-mensaje [mensaje]=msj></components-mensaje>
+  </div>
+  <div class="border">
+    <ion-input type="text" placeholder="Escribir mensaje"></ion-input>
+  </div>
+
+</ion-content>

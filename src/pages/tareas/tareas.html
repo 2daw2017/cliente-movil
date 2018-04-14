@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tareas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngFor="let tare of tareas">
+    <components-tarea [tarea]=tare></components-tarea>
+  </div>
+</ion-content>

@@ -1,0 +1,14 @@
+page-mensajeria {
+ .border{
+     width: 90%;
+     border: 1px solid white;
+     background-color: white;
+     padding: 10px;
+     border-radius: 25px;
+    margin-left: 5%;
+ }
+ .fondo{
+    background-image: url("/assets/imgs/fondo-mensajes.jpg");
+    background-repeat: repeat-y-x;
+ }
+}

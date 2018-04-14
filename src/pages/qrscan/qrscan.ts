@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
-/**
- * Generated class for the QrscanPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @IonicPage()
 @Component({
@@ -14,12 +10,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'qrscan.html',
 })
 export class QrscanPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  idEmpresa: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QrscanPage');
   }
-
+  startScan() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+      if (!barcodeData.cancelled)
+        this.idEmpresa = barcodeData.text;
+        console.log(this.idEmpresa);
+    }).catch(err => {
+      console.log('Error', err);
+      this.presentToast(err);
+    });
+  }
+  presentToast(mensaje: string) {
+    let toast = this.toastCtrl.create({
+      message: mensaje,
+      duration: 3000
+    });
+    toast.present();
+  }
 }
