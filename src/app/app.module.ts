@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
 
 // Paginas
 import { MyApp } from './app.component';
@@ -11,9 +9,11 @@ import { SignupPage, MainPage, QrscanPage, MensajeriaPage, TareasPage } from '..
 // Services
 
 //Plugins
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { LaunchNavigator} from '@ionic-native/launch-navigator';
-
+import { Geolocation } from '@ionic-native/geolocation';
 // Mapas
 import { AgmCoreModule } from '@agm/core';
 // Modulos
@@ -52,7 +52,8 @@ import { ComponentsTareaComponent } from '../components/components-tarea/compone
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     BarcodeScanner,
-    LaunchNavigator
+    LaunchNavigator,
+    Geolocation
   ]
 })
 export class AppModule { }
