@@ -10,6 +10,17 @@ $font-path: "../assets/fonts";
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
+ion-col {
+  &[width-30] {
+  flex: 0 0 30%;
+  max-width: 30%;
+  }
+  
+  &[width-70] {
+  flex: 0 0 70%;
+  max-width: 70%;
+  }
+  }
 
 
 @import "ionic.globals";

@@ -1,10 +1,25 @@
 <ion-grid>
-  <ion-row>
-    <ion-col col-auto push-1>
+  <ion-row justify-content-end *ngIf="derecha">
+    <ion-col col-auto align-self-end>
+      <ion-card color="mensaje">
+        <ion-card-content>
+            <ion-col>
+                {{text}}
+                <small>{{date}}</small>
+              </ion-col>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="!derecha">
+    <ion-col col-auto>
       <ion-card>
-        <ion-card-content [ngClass]="{'derecha':derecha,'izquierda':!derecha}">
-          {{text}}
-          <small text-right>{{date}}</small>
+        <ion-card-content>
+          <ion-col>
+            {{text}}
+            <small>{{date}}</small>
+          </ion-col>
         </ion-card-content>
       </ion-card>
     </ion-col>

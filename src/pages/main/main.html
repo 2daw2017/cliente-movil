@@ -16,27 +16,7 @@
       Horario: {{horario}}
     </ion-card-content>
   </ion-card>
-  <ion-card color="secondary">
-    <ion-card-header>
-      Avería Abengoa
-    </ion-card-header>
-    <ion-card-content>
-      Avenida de Jerez 45,
-      <br>625000000
-      <h3>Fallo general en el sistema</h3>
-
-      <div class row>
-        <div class col>
-          <button ion-button color="primary" round (click)="completarTarea()" small end>Enviar mensaje</button>
-        </div>
-      </div>
-    </ion-card-content>
-  </ion-card>
-  <br>
-  <button ion-button color="primary" block round (click)="completarTarea()">Completar tarea</button>
-  <br>
-  <button ion-button color="primary" block round (click)="verMapa()">Ver en el mapa</button>
-  <br>
+  <components-tarea [tarea]=tareas[0] [mostrar]=true></components-tarea>
   <button ion-button color="primary" block round (click)="verTareas()">Ver tareas</button>
   
   <ion-fab right bottom>

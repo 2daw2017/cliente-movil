@@ -1,13 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Tarea } from '../../models/tarea.model';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 @Component({
   selector: 'components-tarea',
   templateUrl: 'components-tarea.html'
 })
 export class ComponentsTareaComponent implements OnInit{
   @Input() tarea: Tarea;
+  @Input() mostrar: boolean;
   color: string;
-  constructor() {
+  constructor(private launchNavigator: LaunchNavigator) {
   }
   ngOnInit(){
     this.color=this.asignarColor();
@@ -27,5 +29,14 @@ export class ComponentsTareaComponent implements OnInit{
         break;
     }
     return color;
+  }
+  private completarTarea(){
+    this.tarea.completada=true;
+  }
+  private verMapa() {
+    var app = this.launchNavigator.APP.GOOGLE_MAPS;
+    this.launchNavigator.navigate("Av. de Moratalaz, 170, Madrid", {
+      app: app
+    });
   }
 }

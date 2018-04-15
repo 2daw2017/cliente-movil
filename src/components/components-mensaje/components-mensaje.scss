@@ -1,13 +1,11 @@
-components-mensaje {
-    .derecha{
-        background-color: #e0fec7;
-        position: relative;
-        left: 0px;
+    ion-row {
+
+        ion-col {
+    
+            &:first-of-type {
+                max-width: 250px;
+                margin: -5px;
+                margin-top: -12px;
+            }
+        }
     }
-    .izquierda{
-    }
-}
-$grid-max-widths:(
-    sm: 100px,
-    md: 100px
-)
