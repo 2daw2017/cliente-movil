@@ -7,18 +7,23 @@ import { MyApp } from './app.component';
 import { SignupPage, MainPage, QrscanPage, MensajeriaPage, TareasPage } from '../pages/export';
 
 // Services
+import { AuthService } from '../providers/auth.service';
 
 //Plugins
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { LaunchNavigator} from '@ionic-native/launch-navigator';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Geolocation } from '@ionic-native/geolocation';
+
 // Mapas
 import { AgmCoreModule } from '@agm/core';
 // Modulos
 import { ComponentsMensajeComponent } from '../components/components-mensaje/components-mensaje';
 import { ComponentsTareaComponent } from '../components/components-tarea/components-tarea';
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,8 +36,10 @@ import { ComponentsTareaComponent } from '../components/components-tarea/compone
     TareasPage
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDxLW7O0ZfmNFbuHl9EwOvcglcjWPUZL28'
     })
@@ -53,7 +60,8 @@ import { ComponentsTareaComponent } from '../components/components-tarea/compone
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     BarcodeScanner,
     LaunchNavigator,
-    Geolocation
+    Geolocation,
+    AuthService
   ]
 })
 export class AppModule { }

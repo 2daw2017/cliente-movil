@@ -1,15 +1,25 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Platform } from 'ionic-angular';
 
 import { MainPage, QrscanPage } from '../export';
-
+import { AuthService } from '../../providers/auth.service';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
 export class SignupPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  identity_document: string;
+  password: string;
+  users: string;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    private auth: AuthService,
+    private platform: Platform,
+    private storage: Storage
+  ) {
   }
 
   ionViewDidLoad() {
@@ -23,7 +33,7 @@ export class SignupPage {
         {
           text: 'Acepto',
           handler: () => {
-            this.navCtrl.push(MainPage);
+            this.login();
           }
         },
         {
@@ -36,7 +46,20 @@ export class SignupPage {
     });
     confirm.present();
   }
-  goQrScan(){
+  goQrScan() {
     this.navCtrl.push(QrscanPage);
+  }
+  login() {
+    this.auth.login({ identity_document: this.identity_document, password: this.password }).then(token => {
+      if (this.platform.is('cordova')) {
+        this.storage.set('token', token).then(validation => {
+          this.navCtrl.push(MainPage);
+        });
+      }
+      else {
+        localStorage.setItem('token', token);
+        this.navCtrl.push(MainPage);
+      }
+    }, err => console.log(err))
   }
 }

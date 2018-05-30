@@ -3,13 +3,12 @@ import { Platform, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
-import { SignupPage } from '../pages/signup/signup';
-import { MensajeriaPage, TareasPage, MainPage } from '../pages/export';
+import { MensajeriaPage, TareasPage, MainPage, SignupPage } from '../pages/export';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp implements OnInit {
-  rootPage: any = MainPage;
+  rootPage: any = SignupPage;
 
   constructor(
     platform: Platform,
@@ -40,7 +39,7 @@ export class MyApp implements OnInit {
       });
     }, 10000);
   }
-  private presentToast(msg:string) {
+  private presentToast(msg: string) {
     let toast = this.toastCtrl.create({
       message: msg,
       duration: 3000

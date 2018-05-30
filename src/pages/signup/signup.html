@@ -9,14 +9,20 @@
 
 <ion-content padding>
   <br><br>
-  <h3>Código de empresa</h3>
-  <p>Introduce el código de tu empresa</p>
+  <h3>Login</h3>
   <ion-list>
+
     <ion-item>
-      <ion-label fixed>Código: xx-xxxx-xx</ion-label>
-      <ion-input type="text" value=""></ion-input>
+      <ion-label floating>Documento identidad</ion-label>
+      <ion-input type="text" [(ngModel)]="identity_document"></ion-input>
     </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  
   </ion-list>
-  <button ion-button color="secondary" block round (click)="showAlert()">Próximo paso</button>
+  <button ion-button color="secondary" block round (click)="showAlert()">Entrar</button>
   <button ion-button color="primary" block round (click)="goQrScan()">Escanear codigo QR</button>
 </ion-content>
