@@ -1,28 +1,17 @@
-<ion-header>
+<ion-content class="getstart">
+  <div class="backgorundContainer"></div>
+  <div class="container">
+    <ion-list>
+      <div class="input-login">
+        <input type="text" [(ngModel)]="identity_document" placeholder="Documento de identidad">
+      </div>
 
-  <ion-navbar >
-    <ion-title>Configuración inicial</ion-title>
-  </ion-navbar>
+      <div>
+        <input type="password" [(ngModel)]="password" placeholder="Contraseña">
+      </div>
+    </ion-list>
 
-</ion-header>
-
-
-<ion-content padding>
-  <br><br>
-  <h3>Login</h3>
-  <ion-list>
-
-    <ion-item>
-      <ion-label floating>Documento identidad</ion-label>
-      <ion-input type="text" [(ngModel)]="identity_document"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-  
-  </ion-list>
-  <button ion-button color="secondary" block round (click)="showAlert()">Entrar</button>
-  <button ion-button color="primary" block round (click)="goQrScan()">Escanear codigo QR</button>
+    <button ion-button color="secondary" block round (click)="showAlert()">Entrar</button>
+    <button ion-button color="primary" block round (click)="goQrScan()">Escanear codigo QR</button>
+  </div>
 </ion-content>

@@ -23,6 +23,7 @@ import { ComponentsMensajeComponent } from '../components/components-mensaje/com
 import { ComponentsTareaComponent } from '../components/components-tarea/components-tarea';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
+import { LocationService } from '../providers/location.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { HttpClientModule } from '@angular/common/http';
     BarcodeScanner,
     LaunchNavigator,
     Geolocation,
-    AuthService
+    AuthService,
+    LocationService
   ]
 })
 export class AppModule { }

@@ -24,27 +24,7 @@ export class MyApp implements OnInit {
 
   }
   ngOnInit() {
-    this.mandarUbicacion();
   }
-  private mandarUbicacion() {
-    setInterval(() => {
-      console.log('posicion')
-      this.geolocation.getCurrentPosition().then((resp) => {
-        console.log(resp.coords.latitude);
-        console.log(resp.coords.longitude);
-        this.presentToast(`latitud: ${resp.coords.latitude} longitud: ${resp.coords.longitude}`);
-      }).catch((error) => {
-        console.log('Error getting location', error);
-        this.presentToast(`Error perdida de señal: ${error}`)
-      });
-    }, 10000);
-  }
-  private presentToast(msg: string) {
-    let toast = this.toastCtrl.create({
-      message: msg,
-      duration: 3000
-    });
-    toast.present();
-  }
+
 }
 
