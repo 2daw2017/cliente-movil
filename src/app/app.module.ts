@@ -24,6 +24,10 @@ import { ComponentsTareaComponent } from '../components/components-tarea/compone
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { LocationService } from '../providers/location.service';
+import { HandshakeService } from '../providers/handshake.service';
+import { TasksService } from '../providers/task.service';
+import { CompanyService } from '../providers/company.service';
+import { AccountService } from '../providers/account.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,11 @@ import { LocationService } from '../providers/location.service';
     LaunchNavigator,
     Geolocation,
     AuthService,
-    LocationService
+    LocationService,
+    HandshakeService,
+    TasksService,
+    CompanyService,
+    AccountService
   ]
 })
 export class AppModule { }

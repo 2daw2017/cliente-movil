@@ -16,9 +16,11 @@
       Horario: {{horario}}
     </ion-card-content>
   </ion-card>
-  <components-tarea [tarea]=tareas[0] [mostrar]=true></components-tarea>
+  <div *ngIf="tareas.length>0">
+    <components-tarea [tarea]=tareas[0] [mostrar]=true></components-tarea>
+  </div>
   <button ion-button color="primary" block round (click)="verTareas()">Ver tareas</button>
-  
+
   <ion-fab right bottom>
     <button ion-fab color="primary">
       <ion-icon name="menu"></ion-icon>

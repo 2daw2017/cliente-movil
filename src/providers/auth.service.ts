@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { urls } from '../constants/constants';
 
 @Injectable()
 
@@ -13,7 +14,7 @@ export class AuthService {
 
   public login(credentials): Promise<string> {
     return this.http.post(
-      'http://productivity-fabric.azurewebsites.net' + '/api/Authorization/LoginWithIdentityDocument',
+      urls.path + '/api/Authorization/LoginWithIdentityDocument',
       JSON.stringify(credentials),
       {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

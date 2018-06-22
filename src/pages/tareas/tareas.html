@@ -7,7 +7,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding *ngIf="tareas">
   <div *ngFor="let tare of tareas">
     <components-tarea [tarea]=tare></components-tarea>
   </div>

@@ -1,18 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Tarea } from '../../models/tarea.model';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { TasksService } from '../../providers/task.service';
 @Component({
   selector: 'components-tarea',
   templateUrl: 'components-tarea.html'
 })
-export class ComponentsTareaComponent implements OnInit{
+export class ComponentsTareaComponent implements OnInit {
   @Input() tarea: Tarea;
   @Input() mostrar: boolean;
   color: string;
-  constructor(private launchNavigator: LaunchNavigator) {
+  constructor(
+    private launchNavigator: LaunchNavigator,
+    private taskService: TasksService
+  ) {
   }
-  ngOnInit(){
-    this.color=this.asignarColor();
+  ngOnInit() {
+    this.color = this.asignarColor();
   }
   private asignarColor() {
     let color;
@@ -30,12 +34,22 @@ export class ComponentsTareaComponent implements OnInit{
     }
     return color;
   }
-  private completarTarea(){
-    this.tarea.completada=true;
+  private completarTarea() {
+    this.taskService.getStatustype().then(types => {
+      let cont = true;
+      let j = 0;
+      while (cont) {
+        if (types[j]['name'] === 'Finalizada') {
+          this.taskService.setTaskStatus(this.tarea.id, types[j]['id']).then(response => {
+          });
+          cont = false;
+        } j++;
+      }
+    });
   }
   private verMapa() {
     var app = this.launchNavigator.APP.GOOGLE_MAPS;
-    this.launchNavigator.navigate("Av. de Moratalaz, 170, Madrid", {
+    this.launchNavigator.navigate(this.tarea.direccion, {
       app: app
     });
   }

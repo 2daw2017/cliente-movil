@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams, AlertController, Platform } from '
 import { MainPage, QrscanPage } from '../export';
 import { AuthService } from '../../providers/auth.service';
 import { Storage } from '@ionic/storage';
+import { HandshakeService } from '../../providers/handshake.service';
+
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
@@ -18,8 +20,14 @@ export class SignupPage {
     public alertCtrl: AlertController,
     private auth: AuthService,
     private platform: Platform,
-    private storage: Storage
+    private storage: Storage,
+    private handshakeService: HandshakeService
   ) {
+    this.handshakeService.handshake().then(ok => {
+      if (ok) {
+        this.navCtrl.push(MainPage);
+      };
+    });
   }
 
   ionViewDidLoad() {
